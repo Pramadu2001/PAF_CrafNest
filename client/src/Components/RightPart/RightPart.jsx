@@ -3,8 +3,14 @@ import SearchIcon from '@mui/icons-material/Search';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Button from '@mui/material/Button';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import SubscriptionModal from '../SubscriptionModal/SubscriptionModal';
 
 const RightPart = () => {
+
+    const [openSubscriptionModel, setOpenSubscriptionModel] = React.useState(false);
+      const handleOpenSubscriptionModel =()=> setOpenSubscriptionModel(true);
+      const handleCloseSubscriptionModel = () => setOpenSubscriptionModel(false);
+
     const handleChangeTheme = () => {
         console.log('theme Changed');
     };
@@ -37,6 +43,7 @@ const RightPart = () => {
                         textTransform: 'none',
                         fontSize: '14px',
                     }}
+                    onClick={handleOpenSubscriptionModel}
                 >
                     Get Verified
                 </Button>
@@ -55,6 +62,9 @@ const RightPart = () => {
                     </div>
                     <MoreHorizIcon className="text-gray-500 hover:text-blue-500" />
                 </div>
+            </section>
+            <section>
+                <SubscriptionModal open={openSubscriptionModel} handleClose={handleCloseSubscriptionModel}/>
             </section>
         </div>
     );
