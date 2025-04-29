@@ -8,6 +8,7 @@ import RightPart from '../RightPart/RightPart';
 import { Route, Routes } from 'react-router-dom';
 import Profile from '../Profile/Profile';
 import CraftDetails from '../CraftDetails/CraftDetails';
+import LearningProgress from '../LearningProgress/LearningProgress';
 
 // Styled Paper component with no borders
 const Item = styled(Paper)(({ theme }) => ({
@@ -22,8 +23,6 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const Homepage = () => {
-  console.log('Homepage component rendered'); // Debugging log
-
   return (
     <Grid
       container
@@ -36,7 +35,7 @@ const Homepage = () => {
       }}
       justifyContent="space-between"
     >
-      {/* Left Part: Hidden on xs, visible on lg */}
+      {/* Left Part */}
       <Grid
         item
         xs={0}
@@ -52,7 +51,7 @@ const Homepage = () => {
         <Navigation />
       </Grid>
 
-      {/* Middle Part: Full width on xs, 7 units on lg */}
+      {/* Middle Part */}
       <Grid
         item
         xs={12}
@@ -71,11 +70,11 @@ const Homepage = () => {
           <Route path="/home" element={<HomeSection />}></Route>
           <Route path="/Profile/:id" element={<Profile />}></Route>
           <Route path="/Craft/:id" element={<CraftDetails />}></Route>
+          <Route path="/learning-progress" element={<LearningProgress />} />
         </Routes>
-     
       </Grid>
 
-      {/* Right Part: Hidden on xs, 2 units on lg */}
+      {/* Right Part */}
       <Grid
         item
         xs={0}

@@ -92,7 +92,7 @@ const Card = () => {
                         <div onClick={()=> navigate('/Craft/${3}')}  className="cursor-pointer">
                             <p className="mb-2 p-0 text-gray-800">DIY Craft idea to make bamboo bag</p>
                             <img
-                                src="./assets/Logo.png"
+                                src="./assets/profileB.jpg"
                                 className="w-full max-w-[28rem] border border-gray-200 rounded-md object-cover"
                                 alt="bamboo bag"
                             />

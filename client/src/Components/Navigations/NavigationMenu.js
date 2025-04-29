@@ -1,4 +1,3 @@
-
 export const navigationMenu = [
     {
       title: "Home",
@@ -43,6 +42,6 @@ export const navigationMenu = [
     {
       title: "More",
       icon: "PendingIcon",
-      path: "/more",
+      path: "/learning-progress", // Changed from "/more" to "/learning-progress"
     },
   ];
