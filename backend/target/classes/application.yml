@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
 access-token:
   private: ${ACCESS_TOKEN_PRIVATE_KEY_PATH}
   public: ${ACCESS_TOKEN_PUBLIC_KEY_PATH}
@@ -13,7 +13,7 @@ spring:
     active: dev
   data:
     mongodb:
-      uri: mongodb+srv://senerunethum:root@cluster0.sirpp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      uri: mongodb+srv://izu99:TDsFSwDtJ7B1n8m5@cluster0.ghixis6.mongodb.net/oauthdb?retryWrites=true&w=majority&appName=Cluster0&ssl=true&tlsAllowInvalidCertificates=true
       database: ${MONGODB_DB}
   security:
     oauth2:
