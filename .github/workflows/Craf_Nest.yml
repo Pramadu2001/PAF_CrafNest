@@ -49,9 +49,10 @@ jobs:
       - name: Build Frontend
         run: |
           cd frontend
-          CI=false npm run build   # <-- This disables treating warnings as errors
+          CI=false npm run build   # Prevents treating warnings as errors
 
-      - name: Run Tests
+      - name: Run Tests (Polyfill TextEncoder)
         run: |
           cd frontend
-          npm test -- --watchAll=false
+          echo "global.TextEncoder = require('util').TextEncoder; global.TextDecoder = require('util').TextDecoder;" > jest-env-fix.js
+          node -r ./jest-env-fix.js ./node_modules/.bin/jest --watchAll=false
