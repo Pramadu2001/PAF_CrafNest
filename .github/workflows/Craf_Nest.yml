@@ -23,7 +23,7 @@ jobs:
         run: |
           cd backend
           mvn clean install -DskipTests
-          
+
       - name: Run Backend Tests
         run: |
           cd backend
@@ -46,19 +46,14 @@ jobs:
           cd frontend
           npm ci
 
-      # Add babel.config.js dynamically to fix Jest JSX parsing issue
-      - name: Add Babel config for React support
-        run: |
-          echo "module.exports = { presets: ['@babel/preset-env', '@babel/preset-react'] };" > frontend/babel.config.js
+      # No need to add babel config dynamically now
 
-      # Disable CI env var to prevent treating warnings as errors in build
       - name: Build Frontend (ignore warnings as errors)
         run: |
           cd frontend
           CI='' npm run build
 
-      # Run Jest tests with inline config to ensure config is loaded
       - name: Run Frontend Tests
         run: |
           cd frontend
-          npx jest --config=jest.config.js || npx jest
+          npx jest --config=jest.config.js
