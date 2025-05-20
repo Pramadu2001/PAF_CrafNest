@@ -24,7 +24,7 @@ jobs:
           cd backend
           mvn clean install -DskipTests
 
-      - name: Run Tests
+      - name: Run Backend Tests
         run: |
           cd backend
           mvn test
@@ -46,13 +46,12 @@ jobs:
           cd frontend
           npm ci
 
-      - name: Build Frontend
+      - name: Build Frontend (ignore warnings as errors)
         run: |
           cd frontend
-          CI=false npm run build   # Prevents treating warnings as errors
+          CI='' npm run build
 
-      - name: Run Tests (Polyfill TextEncoder)
+      - name: Run Frontend Tests with Babel support
         run: |
           cd frontend
-          echo "global.TextEncoder = require('util').TextEncoder; global.TextDecoder = require('util').TextDecoder;" > jest-env-fix.js
-          node -r ./jest-env-fix.js ./node_modules/.bin/jest --watchAll=false
+          npx jest --config=jest.config.js
